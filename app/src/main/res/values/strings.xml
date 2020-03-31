@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">COVID-19-TN</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_main_fragment">Bienvenue sur notre application!</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nom">Nom</string>
+    <string name="Nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="tel">Tel</string>
+    <string name="adresse">Adresse</string>
+    <string name="question_suivante">Question Suivante</string>
+    <string name="code_postal">code Postal</string>
+    <string name="nameerror">Entrez un nom valide</string>
+    <string name="mobileerror">Entrez un numéro de tel valide</string>
+    <string name="cinerror">Entrez un numéro de cin valide</string>
+    <string name="codeerror">Entrez un code postal valide</string>
+    <string name="ageerror">Entrez un age valide</string>
+    <string name="validation">Validation Successfull</string>
+</resources>
