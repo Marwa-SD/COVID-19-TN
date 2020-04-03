@@ -1,29 +1,32 @@
 <resources>
     <string name="app_name">COVID-19-TN</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings" translatable="false">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_main_fragment">Bienvenue sur notre application!</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_main_fragment" translatable="false">Bienvenue sur notre application!</string>
+    <string name="remarques" translatable="false">Dans le cadre de la lutte contre le Coronavirus (COVID-19),notre application fournit un questionnaire permettant de declarer les cas atteints. Il s\'agit d\'un simple test medical pour faciliter le suivi de votre état de santé</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nom">Nom</string>
-    <string name="Nom">Nom</string>
-    <string name="prenom">Prenom</string>
-    <string name="tel">Tel</string>
-    <string name="adresse">Adresse</string>
-    <string name="question_suivante">Question Suivante</string>
-    <string name="code_postal">code Postal</string>
-    <string name="nameerror">Entrez un nom valide</string>
-    <string name="mobileerror">Entrez un numéro de tel valide</string>
-    <string name="cinerror">Entrez un numéro de cin valide</string>
-    <string name="codeerror">Entrez un code postal valide</string>
-    <string name="ageerror">Entrez un age valide</string>
-    <string name="validation">Validation Successfull</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="nom" translatable="false">Nom</string>
+    <string name="Nom" translatable="false">Nom</string>
+    <string name="prenom" translatable="false">Prenom</string>
+    <string name="tel" translatable="false">Tel</string>
+    <string name="adresse" translatable="false">Adresse</string>
+    <string name="question_suivante" translatable="false">Question Suivante</string>
+    <string name="code_postal" translatable="false">code Postal</string>
+    <string name="nameerror" translatable="false">Entrez un nom valide</string>
+    <string name="mobileerror" translatable="false">Entrez un numéro de tel valide</string>
+    <string name="cinerror" translatable="false">Entrez un numéro de cin valide</string>
+    <string name="codeerror" translatable="false">Entrez un code postal valide</string>
+    <string name="ageerror" translatable="false">Entrez un age valide</string>
+    <string name="validation" translatable="false">Validation Successfull</string>
+    <string name="franais" translatable="false">Français</string>
+    <string name="arabe" translatable="false">Arabe</string>
 </resources>

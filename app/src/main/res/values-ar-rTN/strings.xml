@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">COVID-19-TN</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next" translatable="false">Next</string>
+
+    <string name="hello_main_fragment" translatable="false">مرحبا!</string>
+    <string name="remarques" translatable="false">كجزء من مكافحة فيروس كورونا (COVID-19) ، يوفر تطبيقنا استبيانًا للإبلاغ عن الحالات. إنه اختبار طبي بسيط لتسهيل مراقبة حالتك الصحية.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="nom" translatable="false">الاسم</string>
+    <string name="Nom" translatable="false">الاسم</string>
+    <string name="prenom" translatable="false">اللقب</string>
+    <string name="tel" translatable="false">الهاتف</string>
+    <string name="question_suivante" translatable="false">السؤال التالي</string>
+    <string name="code_postal" translatable="false">الرقم البريدي</string>
+    <string name="nameerror" translatable="false">أدخل اسمًا صحيحا</string>
+    <string name="mobileerror" translatable="false">أدخل رقم هاتف صالح</string>
+    <string name="cinerror" translatable="false">أدخل رقم بطاقة تعريف صالح</string>
+    <string name="codeerror" translatable="false">أدخل رقما بريديًا صالحًا</string>
+    <string name="ageerror" translatable="false">أدخل العمر</string>
+    <string name="franais" translatable="false">Français</string>
+    <string name="arabe" translatable="false">Arabe</string>
+</resources>

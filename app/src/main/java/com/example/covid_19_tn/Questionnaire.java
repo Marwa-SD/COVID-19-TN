@@ -12,13 +12,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Questionnaire extends AppCompatActivity {
 
     TextView Q;
     Button submitbutton;
     RadioGroup radio_g;
     RadioButton rb1,rb2;
-
     String questions[] = {
             "Est ce que vous avez eu un contact avec une personne étrangère ou quelqu'un contaminé ?",
             "Avez-vous  de la fièvre ces 48 dernières heures (>=38 prise par thermomètre) ? ",
@@ -28,6 +33,8 @@ public class Questionnaire extends AppCompatActivity {
             "Ces derniers jours, avez-vous noté une forte diminution ou perte de votre goût ou de votre odorat ?",
             "Ces derniers jours, avez-vous eu un mal de gorge ou sécheresse de la gorge ?",
             "Ces derniers jours, avez-vous une asthénie (fatigue inhabituelle) ?",
+            "Ces derniers jours avez-vous des douleurs musculaires et/ou des courbatures inhabituelles?",
+            "Avez-vous des maux de tete (céphalé)",
             "Dans les dernières 24 heures, avez-vous noté un manque de souffle INHABITUEL lorsque vous parlez ou lors d' un petit effort ou une difficulté respiratoire ou étouffement ? ",
             "Avez-vous des douleurs toracique?",
             "Avez-vous de l’hypertension artérielle mal équilibrée ? Ou avez-vous une maladie cardiaque ou vasculaire ? Ou prenez vous un traitement à visée cardiologique ?",
@@ -37,9 +44,9 @@ public class Questionnaire extends AppCompatActivity {
             "Avez-vous une insuffisance rénale chronique dialysée ?",
             "Avez-vous une maladie chronique du foie ?",
             "Êtes-vous enceinte ?",
-            "Avez-vous une maladie connue qui diminue  vos défenses immunitaires ?",
-            "Prenez-vous un traitement immunosuppresseur"+"\n"+" C'est un traitement qui diminue vos défenses contre les infections ?",
-            "Avez-vous prenez des anti-inflamatoire ?"
+            "Avez-vous une maladie connue qui diminue  vos défenses immunitaires ? ou Prenez-vous un traitement immunosuppresseur (C'est un traitement qui diminue vos défenses contre les infections )? ",
+            "Avez-vous prenez des anti-inflamatoire ?",
+            "AAvez-vous des difficultés à manger et à boire?"
     };
     String questionsAr[] = {
             "جيت من الخارج ولا قابلت شخص من الخارج؟",
@@ -65,13 +72,16 @@ public class Questionnaire extends AppCompatActivity {
             "تشرب في  أدوية مضادة للالتهابات؟"
 
     };
-    int score[] = {3, 2, 2, 1, 2, 1, 1, 1, 1, 3, 2, 1, 1, 1, 2, 2, 1, 1, 2, 1};
+    int score[] = {300, 20, 20, 1, 20, 1, 1, 1, 1,1,300, 200, 1, 1, 1, 20, 2, 2, 1, 20, 10, 10};
     String opt[] = {
             "Oui","Non"
     };
     int flag=0;
-    public static int marks=0,correct=0,wrong=0;
-    public static String etat[]= new String [22];;
+    public static int marks=0;
+    public static List<String> etat = new ArrayList<>();
+    public static List<String> codeRouge = new ArrayList<>();
+    public static List<String> codeOrange = new ArrayList<>();
+    DatabaseReference reff;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,22 +98,25 @@ public class Questionnaire extends AppCompatActivity {
         Q.setText(questions[flag]);
         rb1.setText(opt[0]);
         rb2.setText(opt[1]);
-        final int i =0;
+        //final int i =0;
+
         submitbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(radio_g.getCheckedRadioButtonId()==-1)
                 {
                     Toast.makeText(getApplicationContext(), "Veuillez sélectionner un choix", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if ((flag==15)&&(Identification.genre.equals("Homme"))){flag++;}
                 RadioButton userans = (RadioButton) findViewById(radio_g.getCheckedRadioButtonId());
                 String ansText = userans.getText().toString();
                 if(ansText.equals(opt[0])) {
-                    marks+=score[flag];
-                    etat[i]=questions[flag];
-                    Toast.makeText(getApplicationContext(), etat[i] , Toast.LENGTH_SHORT).show();
+                    if (score[flag] % 100 == 0){codeRouge.add(questions[flag]);}
+                    else if ((score[flag] % 100 != 0)&&((score[flag] % 10 == 0))){codeOrange.add(questions[flag]);marks+=score[flag] / 10;}
+                    else{marks+=score[flag];}
+                    etat.add(questions[flag]);
+                    Toast.makeText(getApplicationContext(),questions[flag] , Toast.LENGTH_SHORT).show();
                 }
 
                 flag++;
@@ -117,10 +130,15 @@ public class Questionnaire extends AppCompatActivity {
                     rb1.setText(opt[0]);
                     rb2.setText(opt[1]);
                 }
-                else
-                {
+                else {
                     submitbutton.setText("Résultat");
-                    Toast.makeText(getApplicationContext(), "Merci ", Toast.LENGTH_SHORT).show();
+                }
+                if(submitbutton.getText().equals("Résultat")){
+                    reff = FirebaseDatabase.getInstance().getReference().child("Citoyen");
+                    Identification.citoyen.setEtat(etat);
+                    Identification.citoyen.setQorange(codeOrange);
+                    Identification.citoyen.setQRouge(codeRouge);
+                    reff.push().setValue(Identification.citoyen);
                     Intent in = new Intent(getApplicationContext(),Result.class);
                     startActivity(in);
                 }
